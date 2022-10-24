@@ -1,0 +1,127 @@
+<body data-author="oduvan">
+<div class="question-answer">
+    <div class="question">
+        <i>Я не знаю, як розпочати вирішення цієї місії.</i>
+    </div>
+    <div class="answer">
+        <p>Твоя мета — перетворити ціле число на рядок, а потім знайти довжину цього рядка.</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Які інструменти я шукаю?</i>
+    </div>
+    <div class="answer">
+        <p>
+        Тобі потрібен рядковий метод <a target="_blank" href="https://www.w3schools.com/JSREF/jsref_string.asp">String()</a>, щоб конвертувати число в рядок, і атрибут <a target="_blank" href="https://www.w3schools.com/jsref/jsref_length_string.asp">string.length</a>.
+    </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Добре, як мені ними скористатися?</i>
+    </div>
+    <div class="answer">
+        <p>
+            Давай спочатку ти перетвориш дане ціле число у рядок. 
+        </p>
+        <pre class="brush: javascript">
+const text = String(value);
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>
+            А як використати атрибут?
+        </i>
+    </div>
+    <div class="answer">
+        <p>
+            Тепер знайди довжину <b class="code">text</b>.
+        </p>
+        <pre class="brush: javascript">
+const text = String(value);
+const len = text.length;
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>То як має виглядати моє остаточне рішення?</i>
+    </div>
+    <div class="answer">
+        <p>
+            Тобі лише потрібно обгорнути код у вираз функції і повернути <b class="code">len</b>.
+        </p>
+        <p>Ось повне рішення:</p>
+        <pre class="brush: javascript">
+import assert from "assert";
+
+
+function numberLength(value: number): number {
+    
+    const text = String(value);
+    const len = text.length;
+    
+    return len;
+}
+        </pre>
+        <p>Або це можна записати в один рядок:</p>
+        <pre class="brush: javascript">
+import assert from "assert";
+
+
+function numberLength(value: number): number {
+    
+    return String(value).length
+}
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Покажи мені більше розв'язків!<br />
+        Адже я хочу стати справжнім Героєм Javascript!</i>
+    </div>
+    <div class="answer">
+        <p>Звісно, тримай!</p>
+        <p>
+            Рекурсивно здійснюй цілочисельне ділення і рахуй рівень рекурсії поки <b class="code">value</b> не стане 0.
+        </p>
+        <pre class="brush: javascript">
+import assert from "assert";
+
+
+function numberLength(value: number): number {
+
+    return value/10 >= 1 ? numberLength(value/10)+1 : 1;
+}
+        </pre>
+        <p>Роби те ж, що і в минулому розв'язку, але зрозуміліше. Допоки остача від ділення <b class="code">value</b> на <b class="code">10</b> у степені не рівний <b class="code">value</b>, додавай 1 до <b class="code">digits</b>. Чому <b class="code">digits</b> мають початкове значення <b class="code">1</b>? Щоб отримати не-нульову остачу, ти має поділити щонайменше на 10. Коли остача стане рівною числу, це означає, що пораховано всі цифри <b class="code">value</b>.
+        </p>
+        <pre class="brush: javascript">
+import assert from "assert";
+
+
+function numberLength(value: number): number {
+    
+    var digits = 1;
+    while ( (value % (10**digits)) !== value )
+        digits++;
+
+    return digits;
+}
+        </pre>
+        <p><b>Тисни "Best solutions" в меню місії і побачиш багато інших цікавих розв'язків!</b></p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Дякую! Тепер я знаю і розумію більше! Все працює як слід!</i>
+    </div>
+    <div class="answer">
+        Приємно це чути!
+    </div>
+</div>
+</body>
